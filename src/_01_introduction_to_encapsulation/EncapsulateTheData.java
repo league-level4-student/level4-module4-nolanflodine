@@ -1,5 +1,12 @@
 package _01_introduction_to_encapsulation;
 
+import static org.junit.jupiter.api.Assertions.*;
+
+import org.junit.Test;
+
+
+//import org.junit.Test;
+
 /*
  * Encapsulation is a way of protecting the data in a class from being
  * unintentionally altered from another class.
@@ -15,20 +22,68 @@ package _01_introduction_to_encapsulation;
  * 
  * */
 
-
 public class EncapsulateTheData {
-	//1. Encapsulate the member variables.
-	//   Add restrictions to the setters according to the comment.
-	
-	//2. Create a new JUnit Test case and write tests to verify that 
-	//   the member variables' getters and setters are working
-	
-	int itemsReceived; //must not be negative. All negative arguments get set to 0.
-	float degreesTurned; //must be locked between 0.0 and 360.0 inclusive.
-	String nomenclature = " "; //must not be set to a blank string. Blank Strings get set to a space
-	Object memberObj;  //must not be a String.  If it is a String, set it equal to a new Object();
-	
+	// 1. Encapsulate the member variables.
+	// Add restrictions to the setters according to the comment.
+
+	// 2. Create a new JUnit Test case and write tests to verify that
+	// the member variables' getters and setters are working
+
+	private  int itemsReceived; // must not be negative. All negative arguments get set to 0.
+	private static float degreesTurned; // must be locked between 0.0 and 360.0 inclusive.
+	private static String nomenclature = " "; // must not be set to a blank string. Blank Strings get set to a space
+	private static Object memberObj; // must not be a String. If it is a String, set it equal to a new Object();
+@Test
 	public static void main(String[] args) {
-		
+		EncapsulateTheData e = new EncapsulateTheData();
+		e.setItems(4);
+		assertEquals(4, e.getItems());
+	} 
+
+	public  int getItems() {
+		return itemsReceived;
+	}
+
+	public  void setItems(int x) {
+		if (x >= 0) {
+			itemsReceived = x;
+		} else {
+			itemsReceived = 0;
+		}
+	}
+
+	public float getDegrees() {
+		return degreesTurned;
+	}
+
+	public void setDegrees(float x) {
+		if (x >= 0.0 && x <= 360.0) {
+			degreesTurned = x;
+		}
+	}
+
+	public String getNomen() {
+		return nomenclature;
+	}
+
+	public void setNomen(String s) {
+		if (s != "") {
+			nomenclature = s;
+		} else {
+			nomenclature = " ";
+		}
+	}
+
+	public Object getMember() {
+		return memberObj;
+	}
+
+	public void setMember(Object x) {
+		if (x instanceof String) {
+			memberObj = new Object();
+		} else {
+			memberObj = x;
+		}
 	}
 }
+
