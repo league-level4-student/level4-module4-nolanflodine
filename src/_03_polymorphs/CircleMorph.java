@@ -18,8 +18,8 @@ int speedX = 1;
 	}
 
 	public void update() {
-		setX((int) (getX()+Math.cos(speedX)*5));
-		setY((int) (getX()+Math.sin(speedX)*5));
+		setX((int) (getX()+Math.cos(speedX)*100));
+		setY((int) (getX()+Math.sin(speedX)*100));
 
 	}
 }

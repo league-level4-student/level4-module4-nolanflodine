@@ -26,6 +26,8 @@ public class PolymorphWindow extends JPanel implements ActionListener{
     public void buildWindow(){
    	 window = new JFrame("IT'S MORPHIN' TIME!");
    	 window.add(this);
+   	 MessageMorph m = new MessageMorph(WIDTH/2, HEIGHT/2);
+   	 window.addMouseListener(m);
    	 window.getContentPane().setPreferredSize(new Dimension(WIDTH, HEIGHT));
    	 window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
    	 window.pack();
@@ -35,6 +37,9 @@ public class PolymorphWindow extends JPanel implements ActionListener{
    	 poly.add(new RedMorph(200,50));
    	 poly.add(new MovingMorph(0, movingY));
    	 poly.add(new CircleMorph(WIDTH/3, -100));
+   	 poly.add(new MouseMorph(50,50));
+   	 poly.add(new MessageMorph(WIDTH/2, HEIGHT/2));
+   	 poly.add(new ImageMorph(200,150));
    	 timer = new Timer(1000 / 30, this);
    	 timer.start();
     }
