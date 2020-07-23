@@ -33,13 +33,28 @@ public class EncapsulateTheData {
 	private static float degreesTurned; // must be locked between 0.0 and 360.0 inclusive.
 	private static String nomenclature = " "; // must not be set to a blank string. Blank Strings get set to a space
 	private static Object memberObj; // must not be a String. If it is a String, set it equal to a new Object();
-@Test
-	public static void main(String[] args) {
-		EncapsulateTheData e = new EncapsulateTheData();
-		e.setItems(4);
-		assertEquals(4, e.getItems());
-	} 
 
+
+	
+@Test
+public void tests(){
+	setItems(4);
+	assertEquals(4, getItems());
+	setItems(-5);
+	assertEquals(0, getItems());
+	setDegrees(20);
+	assertEquals(20, getDegrees());
+	setDegrees(400);
+	assertEquals(20, getDegrees());
+	setNomen("hi");
+	assertEquals("hi", getNomen());
+	setNomen("");
+	assertEquals(" ", getNomen());
+	setMember(4);
+	assertEquals(4, getMember());
+	setMember("String");
+	System.out.println(getMember());
+}
 	public  int getItems() {
 		return itemsReceived;
 	}
